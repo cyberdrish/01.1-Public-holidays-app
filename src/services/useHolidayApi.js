@@ -6,7 +6,7 @@ const useHolidayApi = () => {
     try {
       const res = await axios.get(
         import.meta.env.VITE_HOLIDAYS_API_URL + `&country=${query}&year=2024`
-      );
+      ); // limit by APi to use last years data
       return res.data.holidays;
     } catch (err) {
       console.log("Error", err);
