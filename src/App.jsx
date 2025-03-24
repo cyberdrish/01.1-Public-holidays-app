@@ -51,19 +51,19 @@ function App() {
           )}
         </select>
       </div>
-      <div>
+      <div className="flex justify-center">
         {selectedCountry && (
-          <ul className="text-center">
+          <ul className="text-center items-center justify-center">
             <li className="text-5xl p-3 m-2">Holidays:</li>
             {holidayListData && holidayListData.length > 0 ? (
               holidayListData.map((val) => (
-                <li className="text-1xl" key={val.uuid}>
-                  {val.name}
+                <li className="text-left pl-30" key={val.uuid}>
+                  {val.date} - <span className="font-bold">{val.name}</span>
                 </li>
               ))
             ) : (
               <li className="text-2xl text-center" key="LoadingHolidays">
-                Loading Holidays .
+                Loading Holidays....
               </li>
             )}
           </ul>
