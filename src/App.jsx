@@ -16,6 +16,7 @@ function App() {
 
   useEffect(() => {
     if (selectedCountry) {
+      setHolidayListData([]);
       getHolidayData(selectedCountry)
         .then((holidays) => setHolidayListData(holidays))
         .catch((error) => console.error("Error fetching holiday data:", error));
@@ -51,8 +52,8 @@ function App() {
           )}
         </select>
       </div>
-      <div className="flex justify-center">
-        {selectedCountry && (
+      <div>
+        {selectedCountry ? (
           <ul className="text-center items-center justify-center">
             <li className="text-5xl p-3 m-2">Holidays:</li>
             {holidayListData && holidayListData.length > 0 ? (
@@ -67,6 +68,10 @@ function App() {
               </li>
             )}
           </ul>
+        ) : (
+          <div className="text-2xl text-center" key="LoadingHolidays">
+            No country seleted
+          </div>
         )}
       </div>
     </div>
